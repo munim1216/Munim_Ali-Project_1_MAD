@@ -11,9 +11,10 @@
 
 
     <TextView
+        android:id="@+id/score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Score: 0"
+        android:text="@string/score"
         android:layout_gravity="start|top"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
@@ -21,6 +22,7 @@
         android:textSize="24sp"/>
 
     <TextView
+        android:id="@+id/strikes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -28,15 +30,18 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         android:textSize="24sp"
-        android:text="Strikes: 0"
+        android:text="@string/strikes"
         android:layout_gravity="start|top"/>
 
     <Button
+        android:id="@+id/start_restart_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/start_button"
         android:layout_gravity="center" />
+
     <TextView
+        android:id="@+id/directions_text"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="48dp"
         android:layout_width="wrap_content"
@@ -47,6 +52,7 @@
         />
 
     <Button
+        android:id="@+id/top_button"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:text=""
@@ -55,6 +61,7 @@
         app:cornerRadius="0dp"/>
 
     <Button
+        android:id="@+id/bottom_button"
         android:layout_marginTop="48dp"
         android:layout_width="150dp"
         android:layout_height="150dp"
