@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -103,9 +104,13 @@ class MainActivity : AppCompatActivity() {
         if (score >= 10) {
             ending()
             scoreView.setTextColor(ContextCompat.getColor(this, R.color.win_green))
+            val winToast: Toast = Toast.makeText(this, "Congrats, you won!", Toast.LENGTH_SHORT)
+            winToast.show()
         } else if (strike >= 3) {
             ending()
             strikeView.setTextColor(ContextCompat.getColor(this, R.color.lose_red))
+            val loseToast: Toast = Toast.makeText(this, "Sorry, you lost", Toast.LENGTH_SHORT)
+            loseToast.show()
         }
     }
 
