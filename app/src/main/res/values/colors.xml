@@ -5,4 +5,10 @@
     <color name="orange">#FF7F50</color>
     <color name="blue">#0082C4</color>
     <color name="yellow">#FDFD96</color>
+    <color name="green">#80ef80</color>
+    <color name="red">#FF5733</color>
+    <color name="win_green">#139313</color>
+    <color name="lose_red">#a11c00</color>
+    <color name="default_text">#524b50</color>
+    <color name="click_yellow">#f9c806</color>
 </resources>

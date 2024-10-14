@@ -33,7 +33,7 @@
         android:text="@string/strikes"
         android:layout_gravity="start|top"/>
 
-    <GameButton
+    <Button
         android:id="@+id/start_restart_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,31 +42,34 @@
 
     <TextView
         android:id="@+id/directions_text"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="48dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/start_text"
-        android:textSize="32sp"
         android:layout_gravity="center"
-        />
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="48dp"
+        android:text="@string/start_text"
+        android:textSize="32sp" />
 
     <Button
         android:id="@+id/top_button"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:text=""
-        android:backgroundTint="@color/orange"
         android:layout_gravity="center"
-        app:cornerRadius="0dp"/>
+        android:backgroundTint="@color/orange"
+        android:enabled="false"
+        android:text=""
+        android:textSize="64sp"
+        app:cornerRadius="0dp" />
 
     <Button
         android:id="@+id/bottom_button"
-        android:layout_marginTop="48dp"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:text=""
+        android:layout_gravity="center"
+        android:layout_marginTop="48dp"
         android:backgroundTint="@color/blue"
-        app:cornerRadius="0dp"
-        android:layout_gravity="center" />
+        android:enabled="false"
+        android:text=""
+        android:textSize="64sp"
+        app:cornerRadius="0dp" />
 </LinearLayout>
