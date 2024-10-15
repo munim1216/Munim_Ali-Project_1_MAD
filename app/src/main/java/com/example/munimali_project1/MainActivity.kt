@@ -2,6 +2,7 @@ package com.example.munimali_project1
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -20,10 +21,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bottomButton: Button
     private lateinit var layout: LinearLayout
     private lateinit var directionText: TextView
+    private lateinit var hardModeCheckBox: CheckBox
     private var upperBound = 100
     private var score = 0
     private var strike = 0
-    private var topIsGreater: Boolean = false
+    private var topIsGreater = false
+    private var hardMode = false
+    private val twoDigitsSize = 64f
+    private val threeDigitsSize = 55f
+    private val fourDigitsSize = 44f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         scoreView = findViewById(R.id.score)
         strikeView = findViewById(R.id.strikes)
         val startRestartButton: Button = findViewById(R.id.start_restart_button)
+        hardModeCheckBox = findViewById(R.id.hard_mode)
         directionText = findViewById(R.id.directions_text)
         topButton = findViewById(R.id.top_button)
         bottomButton = findViewById(R.id.bottom_button)
@@ -40,6 +47,15 @@ class MainActivity : AppCompatActivity() {
         scoreView.text = getString(R.string.score, score)
         strikeView.text = getString(R.string.strikes, strike)
 
+        hardModeCheckBox.setOnClickListener {
+            hardMode = !hardMode
+            upperBound = if (hardMode) {
+                1000
+            } else {
+                100
+            }
+            changeNum()
+        }
         startRestartButton.setOnClickListener {
             startRestartButton.text = getString(R.string.restart_button)
             restart()
@@ -63,6 +79,22 @@ class MainActivity : AppCompatActivity() {
             bottom = (1..upperBound).random()
         }
         topIsGreater = top > bottom
+
+        topButton.textSize = if (top > 999) {
+            fourDigitsSize
+        } else if (top > 99) {
+            threeDigitsSize
+        } else {
+            twoDigitsSize
+        }
+
+        bottomButton.textSize = if (top > 999) {
+            fourDigitsSize
+        } else if (top > 99) {
+            threeDigitsSize
+        } else {
+            twoDigitsSize
+        }
 
         topButton.text = top.toString()
         bottomButton.text = bottom.toString()
@@ -93,6 +125,7 @@ class MainActivity : AppCompatActivity() {
         directionText.text = getString(R.string.playing_text)
         topButton.isEnabled = true
         bottomButton.isEnabled = true
+        hardModeCheckBox.isEnabled = true
         scoreView.text = getString(R.string.score, 0)
         scoreView.setTextColor(ContextCompat.getColor(this, R.color.default_text))
         strikeView.text = getString(R.string.strikes, 0)
@@ -118,6 +151,7 @@ class MainActivity : AppCompatActivity() {
         topButton.isEnabled = false
         topButton.text = ""
         bottomButton.isEnabled = false
+        hardModeCheckBox.isEnabled = false
         bottomButton.text = ""
         directionText.text = getString(R.string.restart_text)
         layout.setBackgroundColor(ContextCompat.getColor(this, R.color.yellow))

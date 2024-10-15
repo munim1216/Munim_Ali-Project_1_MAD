@@ -7,4 +7,5 @@
     <string name="restart_text">Tap restart to play again!</string>
     <string name="score">Score: %1$d</string>
     <string name="strikes">Strikes: %1$d</string>
+    <string name="hard_mode">Hard Mode</string>
 </resources>
